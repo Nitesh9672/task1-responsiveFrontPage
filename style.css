@@ -30,6 +30,10 @@ a {
 
 }
 
+.my-body-noscroll-class {
+    overflow: hidden;
+}
+
 /* header_section */
 #header {
     position: fixed;
@@ -41,11 +45,18 @@ a {
 
 }
 
-/* #header .brand h1 {
-    color: crimson;
-    font-size: 2rem;
-    font-weight: 500;
-} */
+#header .brand {
+    width: 150px;
+    height: 50px;
+
+
+}
+
+#header .brand img {
+    width: 100%;
+    height: 100%;
+
+}
 
 #header .header {
     min-height: 8vh;
@@ -188,6 +199,19 @@ a {
 
     #header .hamburger {
         display: none;
+
+    }
+
+    #header .brand {
+        width: 200px;
+        height: 60px;
+        padding-left: 20px;
+
+    }
+
+    #header .brand img {
+        width: 100%;
+        height: 100%;
 
     }
 
@@ -547,7 +571,7 @@ a {
 
 #approach {
     width: 100%;
-    margin: 0;
+    margin-top: 10%;
     padding: 0;
     /* height: 120vh */
 }
@@ -599,6 +623,7 @@ a {
     color: #3b5364;
     font-weight: 300;
     letter-spacing: .1rem;
+    text-align: center;
 }
 
 #approach .approach-wrapper .approach-equal-section .approach-section-icon {
@@ -718,198 +743,408 @@ a {
     font-size: 3rem;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: #3b5364;
+    font-weight: 400;
+    color: #2d8072;
     line-height: 4rem;
     padding: 20px 0;
 }
 
-#first-ever-autonomus .first-ever-autonomus-wrapper .autonomus-btn {
+#first-ever-autonomus .first-ever-autonomus-wrapper .open-button {
     margin-top: 40px;
     border-radius: 4px;
-    background-color: #2d8072;
+    background-color: #3b5364;
     padding: 20px 40px;
     width: max-content;
     transition: all .5s ease-in-out;
     cursor: pointer;
-}
-
-#first-ever-autonomus .first-ever-autonomus-wrapper .autonomus-btn a {
+    z-index: 50;
     color: white;
     font-size: 1.5rem;
+    border: none;
+    z-index: 70;
+    font-family: 'roboto';
+    font-weight: 400;
 }
 
-#first-ever-autonomus .first-ever-autonomus-wrapper .autonomus-btn:hover {
+
+
+#first-ever-autonomus .first-ever-autonomus-wrapper .open-button:hover {
     background-color: #11473e;
 }
 
-#newsroom:before,
-#newsroom:after {
+
+
+/* The popup form - hidden by default */
+#upload-box {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 5%;
+    bottom: 25%;
+
+    /* background-color: #bbd1e3; */
+    /* transform: translate(-50%, 0); */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    z-index: 80;
+
+
+
+}
+
+#upload-box #myxray {
+    position: relative;
+    width: 400px;
+    height: 330px;
+    background-color: red;
+    border-radius: 10px;
+
+}
+
+
+#upload-box .upload-section {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+#upload-box .cancer-symptoms-notfound {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #d1f9eb;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#upload-box .cancer-symptoms-notfound i {
+    font-size: 4rem;
+    color: #16a872;
+    margin-bottom: 20px;
+}
+
+#upload-box .cancer-symptoms-notfound h3 {
+    font-size: 2.5rem;
+    font-family: 'roboto';
+    font-weight: 400;
+    color: #1b6745;
+    margin-bottom: 20px;
+}
+
+#upload-box #close-btn {
+    border-radius: 4px;
+    background-color: #11473e;
+    padding: 15px 40px;
+    width: max-content;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    z-index: 50;
+    color: white;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+    border: none;
+
+    font-family: 'roboto';
+    font-weight: 400;
+}
+
+
+#upload-box .cancer-symptoms-found {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: rgb(248, 199, 199);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#upload-box .cancer-symptoms-found .lungcancer-img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+
+}
+
+#upload-box .cancer-symptoms-found .lungcancer-img img {
+    width: 100%;
+    height: 100%;
+}
+
+#upload-box .cancer-symptoms-found h3 {
+    font-size: 2.2rem;
+    font-family: 'roboto';
+    font-weight: 400;
+    color: #cd2222;
+    margin-bottom: 20px;
+}
+
+#upload-box .cancer-symptoms-found #close-btn {
+    background-color: #cd2222;
+}
+
+/* .upload-xray-popup {
+    border: 3px solid #2d8072;
+
+} */
+
+/* Add styles to the form container */
+.upload-container {
+    border: 3px solid #3b5364;
+    border-radius: 10px;
+    padding: 40px;
+    /* max-width: 300px; */
+
+    background-color: white;
+    position: relative;
+
+}
+
+/* Full-width input fields */
+.upload-container input[type=file] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+#upload-box .upload-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #3b5364;
+}
+
+#upload-box .upload-container i {
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 3px;
+
+    color: rgb(220, 5, 5);
+}
+
+/* #upload-box .drag-area {
+
+    width: 150px;
+    height: 150px;
+    border: 3px dashed #e0eafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px auto;
+
+}
+
+.drag-area .icon {
+    font-size: 50px;
+    color: #1683ff;
+}
+
+.drag-area .header {
+    font-size: 20px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+.drag-area .button {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1683ff;
+    cursor: pointer;
+}
+
+.drag-area.active {
+    border: 2px solid #1683ff;
+}
+
+.drag-area img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; */
+
+
+/* Set a style for the submit/login button */
+.upload-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.upload-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.upload-container .btn:hover {
+    opacity: 1;
+}
+
+
+
+#diagnose:before,
+#diagnose:after {
     content: "";
     display: table;
 }
 
-#newsroom:after {
+#diagnose:after {
     clear: both;
 }
 
 /* For IE 6/7 (trigger hasLayout) */
-#newsroom {
+#diagnose {
     zoom: 1;
 }
 
-#newsroom {
+#diagnose {
     width: 100%;
-
-}
-
-#newsroom .newsroom-container {
-    width: 100%;
-    padding: 2% 5%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 0 80px;
+    /* background-color: #d1f9eb; */
 
 }
 
-#newsroom .newsroom-container .newsroom-above {
+#diagnose .diagnose-container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 3rem;
+    /* background-color: #354753; */
+
+
+}
+
+#diagnose .diagnose-container .diagnose-lung-cancer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex: 1;
+    gap: 50px;
+    background-color: white;
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    box-shadow: 40px 40px 16px 40px rgba(0, 0, 0, 0.01),
+        0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+
 }
 
-#newsroom .newsroom-container .newsroom-above .newsroom-left {
-    margin-right: auto;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-left {
+    flex: 2;
+
 }
 
-#newsroom .newsroom-container .newsroom-above .newsroom-left .newsroom-title {
-    font-size: 2rem;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right {
+    flex: 2;
+    padding-right: 20%;
+    padding-top: 20px;
+    padding-bottom: 10%;
+
+}
+
+
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-left img {
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .heading h3 {
+    font-size: 3rem;
+    margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: #2d8072;
-}
-
-#newsroom .newsroom-container .newsroom-above .newsroom-left .newsroom-heading {
-    font-size: 3.5rem;
-    margin-top: 5px;
+    font-weight: 400;
     color: #3b5364;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
 }
 
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .para p {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #3b5364;
+}
 
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .para {
+    padding-right: 60px;
+}
 
-#newsroom .newsroom-container .newsroom-above .newsroom-right .newsroom-btn {
-    border-radius: 4px;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .start-btn {
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
     background-color: #2d8072;
-    padding: 20px 40px;
-    width: max-content;
-    transition: all .5s ease-in-out;
+    border: none;
+    border-radius: 4px;
+    color: white;
     cursor: pointer;
 }
 
-#newsroom .newsroom-container .newsroom-above .newsroom-right .newsroom-btn a {
-    color: white;
-    font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .start-btn .onHover {
+    display: none;
 }
 
-#newsroom .newsroom-container .newsroom-above .newsroom-right .newsroom-btn:hover {
-    background-color: #11473e;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .start-btn:hover {
+    color: rgba(8, 255, 102, 0.8);
+
+    background-color: #1f665a;
+
+    transform: translateX(4px);
+    transition: all 0.4s ease-in;
 }
 
-#newsroom .newsroom-container .newsroom-below {
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-    gap: 40px;
-    margin-top: 60px;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section {
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: row;
-}
-
-#newsroom .newsroom-container .newsroom-below.newsroom-section:nth-child(1) {
-    transition: all .05s ease-in;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section .newsroom-img {
-    /* width: 100%; */
-    /* height: 100%; */
-    background-color: #3b5364;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.001),
-        0 6px 20px 0 rgba(0, 0, 0, 0.1);
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section .newsroom-img img {
-
-    max-width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    object-fit: cover;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section .newsroom-section-content {
-    margin-top: 30px;
-    padding: 10px 20px;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section .newsroom-section-content .newsroom-content {
-    margin-top: 20px;
-    font-size: 1.8rem;
-    color: #3b5364;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    letter-spacing: .1rem;
-    line-height: 2.5rem;
+#diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .start-btn:hover .onHover {
+    display: inline-block;
+    transition: all 4s ease-in;
 }
 
 
-#newsroom .newsroom-container .newsroom-below .newsroom-section .newsroom-section-content .newsroom-date {
-    color: #2d8072;
-    font-size: 1.4rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(1):hover {
-    transform: translateY(-8px);
-    transition: all .4s ease-in;
 
 
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(1):hover .newsroom-content {
-    color: #2d8072;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(2):hover {
-    transform: translateY(-8px);
-    transition: all .4s ease-in;
 
 
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(2):hover .newsroom-content {
-    color: #2d8072;
-}
-
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(3):hover {
-    transform: translateY(-8px);
-    transition: all .4s ease-in;
 
 
-}
 
-#newsroom .newsroom-container .newsroom-below .newsroom-section:nth-child(3):hover .newsroom-content {
-    color: #2d8072;
-}
+
+
+
 
 #latest-news {
     position: relative;
@@ -1031,12 +1266,14 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin: 0 15%;
+    margin: 0;
 }
 
 .footer__logo {
-    width: 100%;
+    width: 200px;
+    height: 60px;
     margin-bottom: 2rem;
+    padding-left: 0;
 
 }
 
@@ -1120,6 +1357,25 @@ footer ul li {
 
 }
 
+.footer__col1 .number {
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    color: #3b5364;
+}
+
+.footer__col2 {
+    flex: 1;
+
+}
+
+.footer__col2 p {
+    font-size: 1.4rem;
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #3b5364;
+    line-height: 2.5rem;
+}
+
 @media only screen and (min-width:768px) {
 
     footer {
@@ -1127,8 +1383,14 @@ footer ul li {
         padding-bottom: 8rem;
     }
 
+    footer a:hover {
+        color: #000000;
+        font-weight: 400;
+    }
+
     footer li {
         text-decoration: none;
+        margin-bottom: 10px;
     }
 
     footer ul {
@@ -1154,7 +1416,7 @@ footer ul li {
 
     }
 
-    .footer__col2,
+
     .footer__col3,
     .footer__col4 {
         flex: 2;
@@ -1187,7 +1449,26 @@ footer ul li {
 
     .footer__text a {
         font-size: 1.6rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .footer__col1 .number {
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+        color: #3b5364;
+    }
+
+    .footer__col2 {
+        flex: 3.5;
+        margin-right: 15px;
+    }
+
+    .footer__col2 p {
+        font-size: 1.8rem;
+        font-family: 'Roboto';
+        font-weight: 300;
+        color: #3b5364;
+        line-height: 2.5rem;
     }
 
 
@@ -1286,14 +1567,38 @@ footer ul li {
         padding: 0 10%;
     }
 
-    #newsroom .newsroom-container .newsroom-below {
-        grid-auto-flow: row;
-        gap: 5rem;
+    #diagnose .diagnose-container .diagnose-lung-cancer {
+        flex-direction: column;
+        gap: 0;
     }
 
-    #newsroom .newsroom-container .newsroom-above .newsroom-left .newsroom-heading {
-        font-size: 2.5rem;
-        padding-right: 10px;
+    #diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right {
+        padding-left: 20px;
+        padding-right: 5px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    #diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .heading h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    #diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-right .para p {
+        margin-bottom: 10px;
+    }
+
+    #diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-left {
+        flex: 1;
+
+    }
+
+    #diagnose .diagnose-container .diagnose-lung-cancer .lung-cancer-left img {
+        height: 200px;
+    }
+
+    #diagnose {
+        padding: 0 50px;
     }
 
     #latest-news .latest-news-container {

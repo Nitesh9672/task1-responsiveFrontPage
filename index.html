@@ -18,7 +18,7 @@
             <div class="nav-bar">
                 <div class="brand">
                     <a href="#hero">
-                        <img src="./images/logo2-removebg-preview.png" alt="">
+                        <img src="./images/WhatsApp_Image_2022-04-15_at_11.04.43_AM-removebg-preview.png" alt="">
                     </a>
                 </div>
                 <div class="nav-list">
@@ -174,12 +174,10 @@
         <div class="first-ever-autonomus container">
             <div class="first-ever-autonomus-wrapper">
 
-                <div class="autonomus-heading">IDx-DR - The first ever autonomous AI system cleared by the FDA to
-                    provide a
-                    diagnostic decision.</div>
-                <div class="autonomus-btn">
-                    <a href="#">Learn More</a>
-                </div>
+                <div class="autonomus-heading">Let our AI to diagnose Lung Cancer within a minute</div>
+                <!-- <p>Upload your XRAY</p> -->
+                <button class="open-button" id="uploadBtn" onclick="show()">Upload Xray</button>
+
             </div>
             <div class="custom-shape-divider-bottom-1649652625">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -199,43 +197,78 @@
             </div>
         </div>
     </section>
-    <section id="newsroom">
-        <div class="newsroom-container">
-            <div class="newsroom-above">
-                <div class="newsroom-left">
-                    <div class="newsroom-title">Newsroom</div>
-                    <div class="newsroom-heading">Get the Latest From Digital Diagnostics</div>
+    <!-- popup upload xray  -->
+    <section id="upload-box">
+        <div class="uplaod-xray-popup" id="myxray">
+
+            <div class="upload-section">
+
+                <form action="/action_page.php" method="post" enctype="multipart/form-data" class="upload-container">
+                    <i class="fa-solid fa-rectangle-xmark" onclick="hide()"></i>
+                    <h2>Upload Your Xray</h2>
+
+                    <input id="testFiles" type="file" name="file" accept="image/*" required>
+
+
+                    <!-- <label for=" psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required> -->
+
+                    <button type="submit" class="btn" name="upload">Upload</button>
+                    <button type="reset" class="btn cancel" id="cancel-btn">Cancel</button>
+                </form>
+            </div>
+            <div class="cancer-symptoms-notfound">
+                <i class="fa-solid fa-house-medical-circle-check"></i>
+                <h3>No Symptoms Of Cancer</h3>
+                <button id="close-btn" type="button" onclick="hide()">Close</button>
+            </div>
+            <div class="cancer-symptoms-found">
+                <div class="lungcancer-img">
+                    <img src="./images/lung-cancer (1).png" alt="">
                 </div>
-                <div class="newsroom-right">
-                    <div class="newsroom-btn"><a href="#">View All Posts</a></div>
+                <h3>Symptoms of Lung Cancer Found !!!</h3>
+                <button id="close-btn" type="button" onclick="hide()">Close</button>
+            </div>
+
+        </div>
+    </section>
+    <!-- end of popup upload xray  -->
+    <section id="diagnose">
+        <div class="diagnose-container">
+            <div class="diagnose-lung-cancer">
+                <div class="lung-cancer-left">
+                    <div class="lung-cancer-image">
+                        <img src="./images/pexels-anna-shvets-4226259.jpg" alt="">
+                    </div>
+                </div>
+                <div class="lung-cancer-right">
+                    <div class="heading">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                    </div>
+                    <div class="para">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ut sed ex sint tenetur
+                            fugiat dolor perspiciatis veritatis error dignissimos?</p>
+                    </div>
+                    <button type="button" name="diagnose" class="start-btn">Start <span
+                            class="onHover">>></span></button>
                 </div>
             </div>
-            <div class="newsroom-below">
-                <div class="newsroom-section">
-                    <div class="newsroom-img"><img src="./images/DDX-Baxter.jpg" alt=""></div>
-                    <div class="newsroom-section-content">
-                        <div class="newsroom-date">Press Releases | March 9,2022 </div>
-                        <div class="newsroom-content">Digital diagnostics and Baxter Announces New Partnership</div>
+            <div class="diagnose-lung-cancer">
+                <div class="lung-cancer-left">
+                    <div class="lung-cancer-image">
+                        <img src="./images/pexels-photomix-company-1001897.jpg" alt="">
                     </div>
                 </div>
-                <div class="newsroom-section">
-                    <div class="newsroom-img">
-                        <img src="./images/Teal-Insights-Template.jpg" alt="">
+                <div class="lung-cancer-right">
+                    <div class="heading">
+                        <h3>Lorem ipsum dolor sit amet</h3>
                     </div>
-                    <div class="newsroom-section-content">
-                        <div class="newsroom-date">Press Releases | March 9,2022 </div>
-                        <div class="newsroom-content">Digital Diagnostics Celebrates CMS’s Historic Decision to Finalize
-                            a National Rate for CPT 92229</div>
+                    <div class="para">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ut sed ex sint tenetur
+                            fugiat dolor perspiciatis veritatis error dignissimos?</p>
                     </div>
-                </div>
-                <div class="newsroom-section">
-                    <div class="newsroom-img"><img src="./images/MicrosoftTeams-image-49.jpg" alt=""></div>
-                    <div class="newsroom-section-content">
-                        <div class="newsroom-date">Press Releases | March 9,2022 </div>
-                        <div class="newsroom-content">Digital Diagnostics Provides New Designation to Top Executives –
-                            Co-Founder Titles Added to Recognize Impact of Company
-                            Leaders</div>
-                    </div>
+                    <button type="button" name="diagnose" class="start-btn">Start <span
+                            class="onHover">>></span></button>
                 </div>
             </div>
         </div>
@@ -264,13 +297,16 @@
         <div class="footer__wrapper">
             <div class="footer__col1">
                 <div class="footer__logo">
-                    <img src="./images/logo2-removebg-preview.png" alt="chienseCorner">
+                    <img src="./images/WhatsApp_Image_2022-04-15_at_11.04.43_AM-removebg-preview.png"
+                        alt="chienseCorner">
                 </div>
-                <a href="#">info@digitaldiagnostics.com</a>
+                <a href="#">info@cureya.in</a>
                 <p class="footer__description">
-                    2300 Oakdale Boulevard <br>
-                    Coralville, IA 52241
+                    D-252,Sector XU-1, <br>
+                    Greater Noida, Uttar Pradesh
+
                 </p>
+                <p class="number">+91 9990375133</p>
                 <div class="footer__socials">
                     <h4 class="footer__socials__titles">Follow Us</h4>
                     <ul>
@@ -309,56 +345,37 @@
                 </div>
             </div>
             <div class="footer__col2">
-                <h3 class="footer__text__title">About</h3>
-                <ul class="footer__text">
-                    <li>
-                        <a href="./index.html">Digital Diagnostics
+                <h3 class="footer__text__title">About Us</h3>
+                <p>CUREYA primarily objective is 'Health for All', by reducing the medical expenditure, eliminating the
+                    information asymmerty, promoting health awareness and achieving inculsive & holistics approach for
+                    healthcare treatments.</p>
 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./menu.html">Founder Story
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./about.html">Leadership
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./contact.html">Careers
-
-                        </a>
-                    </li>
-
-                </ul>
             </div>
             <div class="footer__col3">
-                <h3 class="footer__text__title">Resources</h3>
+                <h3 class="footer__text__title">Quick Links</h3>
                 <ul class="footer__text">
                     <li>
-                        <a href="#">Publicaton / Studies
+                        <a href="#">Webinars
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">Digital Media
+                        <a href="#">Shop
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">Event
+                        <a href="#">Seller Registration
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">Newsroom
+                        <a href="#">News Updates
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">FAQ
+                        <a href="#">Internship
 
                         </a>
                     </li>
@@ -367,20 +384,40 @@
                 </ul>
             </div>
             <div class="footer__col4">
-                <h3 class="footer__text__title">Newsroom</h3>
+                <h3 class="footer__text__title">Info Links</h3>
                 <ul class="footer__text">
                     <li>
-                        <a href="#">News
+                        <a href="#">Privacy Policy
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">Press Releases
+                        <a href="#">shipping Policy
 
                         </a>
                     </li>
                     <li>
-                        <a href="#">Insight
+                        <a href="#">Disclaimer
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Refund Policy
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Term & Condition
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">About Us
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Contact
 
                         </a>
                     </li>
